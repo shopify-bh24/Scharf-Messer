@@ -1,0 +1,464 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.8.4/swiper-bundle.min.css">
+
+<style>
+  .section-{{ section.id }}{
+    {% if section.settings.bgColor != blank %}
+      background-color: {{section.settings.bgColor}};
+    {% endif %}
+    padding-top: {{section.settings.pdTop}}px;
+    padding-bottom: {{section.settings.pdBottom}}px;
+  }
+
+  @media(max-width: 999px){
+    .section-{{ section.id }}{
+      padding-top: {{section.settings.pdTopMob}}px;
+      padding-bottom: {{section.settings.pdBottomMob}}px;
+    }
+  }
+  .nwReviewsWrapTitle p{
+    margin: 0;
+  }
+
+  .nwReviews {
+    overflow: hidden;
+  }
+
+  .nwReviews .sub_title {
+    color: rgb(34, 34, 34);
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 0;
+  }
+
+  .nwReviewsWrapTitle h3 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    font-size: 38px;
+    margin: 0;
+  }
+  
+  .nwReviewsWrapTitle{
+    color: #000;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.25; /* 126.316% */
+    letter-spacing: -0.76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav_wrap {
+      display: flex;
+      align-items: center;
+      gap: 20px;  
+  }
+  
+  .nwReviewsWrap{
+  }
+  .landingReviewsWrapSwiper{
+    padding: 60px 0!important;
+  }
+  .landingReviewsWrapSwiper .swiper-slide{
+    width: 100%;
+    max-width: 350px;
+    box-sizing:border-box;
+    border-radius: 16px;
+    border-width: 1px 1px 1px 1px;
+    border-color: rgba(0, 0, 1, 0.1);
+    border-style: solid;
+    background: rgba(255, 255, 255, 1);
+    /* box-shadow: 0px 4px 48px 0px rgba(0, 0, 0, 0.10); */
+    height: auto;
+  }
+  .landingReviewsWrapSwiperSliderTop{
+    padding: 35px 25px 15px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* height: calc(100% - 70px); */
+    height: 100%;
+  }
+  .landingReviewsWrapSwiperSliderBottom{
+    padding: 8px;
+    background: rgba(0,0,0,0.1);
+    border-radius:0 0 8px 8px;
+    
+  }
+  .landingReviewsWrapSwiperSliderBottomMiddle{
+    color: #151515;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.7; /* 171.429% */
+  }
+  .landingReviewsWrapSwiperSliderTopTitle{
+    margin-top: 15px;
+    color: #000;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px; /* 125% */
+    letter-spacing: -0.48px;
+  }
+  .landingReviewsWrapSwiperSliderTopWrapTop>svg{
+    display:block;
+    /* margin: auto; */
+  }
+  .landingReviewsWrapSwiperSliderTopText{
+    margin-top: 12px;
+    color: #151515;
+    text-align: left;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5; /* 150% */
+  }
+  .landingReviewsWrapSwiperSliderTopName{
+    color: #000;
+    text-align: center;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.87; /* 187.5% */
+    margin-top: 10px;
+    letter-spacing: -0.32px;
+  }
+  .landingReviewsWrapSwiperSliderTopVerif{
+    color: #151515;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.7; /* 171.429% */
+    display:flex;
+    align-items:center;
+    gap: 4px;
+    justify-content:flex-start;
+  }
+
+  .landingReviewsWrapSwiperSliderTopVerif img {
+    width: auto;
+    height: 48px;
+    border-radius: 100%;
+  }
+  
+  .landingReviewsWrapSwiperSliderBottomRightBtn{
+    display:block;
+    width: 54px;
+    height: 54px;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+  }
+  .landingReviewsWrapSwiperSliderBottom{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+  }
+  .landingReviewsWrapSwiperSliderBottomLeft{
+    display:block;
+    width: 54px;
+    height: 54px;
+  }
+  .landingReviewsWrapSwiperSliderBottomLeft{
+    display:block;
+    height: 54px;
+    width: auto;
+  }
+  .landingReviewsWrapSwiperSliderOne{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  @media(max-width: 999px){
+    .nwReviewsWrapTitle{
+      color: #000;
+      text-align: center;
+      font-family: "Inter", sans-serif;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 1.16; /* 116.667% */
+      letter-spacing: -0.48px;
+    }
+    .landingReviewsWrapSwiperSliderTop{
+      padding: 23px 20px 10px 20px;
+      height: calc(100% - 58px);
+    }
+    .landingReviewsWrapSwiperSliderTopTitle {
+      color: #000;
+      text-align: center;
+      font-family: "Inter", sans-serif;
+      font-size: 18.555px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 23.193px; /* 125% */
+      letter-spacing: -0.371px;
+    }
+    .landingReviewsWrapSwiperSliderTopText{
+      color: #151515;
+      text-align: center;
+      font-family: "Inter", sans-serif;
+      font-size: 12.37px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 18.555px; /* 150% */
+    }
+    .landingReviewsWrapSwiper .swiper-slide{
+      width: 250px;
+      border-radius: 6.185px;
+      background: #FFF;
+      box-shadow: 0px 3.09244px 37.10925px 0px rgba(0, 0, 0, 0.10);
+    }
+    .landingReviewsWrapSwiperSliderBottom{
+      border-radius: 0 0 6.185px 6.185px;
+    }
+    .landingReviewsWrapSwiperSliderBottomLeft{
+      width: 41.748px;
+      height: 41.748px;
+    }
+    .landingReviewsWrapSwiperSliderBottomLeft img{
+      height: 100%;
+      width: auto;
+    }
+    .landingReviewsWrapSwiperSliderBottomRightBtn{
+      width: 41.748px;
+      height: 41.748px;
+    }
+    .landingReviewsWrapSwiperSliderTopName{
+      font-size: 12px;
+      margin-top: 6px;
+    }
+    .landingReviewsWrapSwiperSliderTopVerif{
+      font-size: 10px;
+    }
+    .landingReviewsWrapSwiperSliderTopVerif svg{
+      width: 15px;
+      height: 15px;
+    }
+    .landingReviewsWrapSwiperSliderTopWrapTop svg{
+      height: 18px;
+    }
+    .landingReviewsWrapSwiperSliderBottomMiddle{
+      font-size: 11px;
+    }
+    .landingReviewsWrapSwiper{
+      padding: 40px 0!important;
+    }
+  }
+
+  @media(max-width: 767px) {
+    .nav_wrap {
+      display: none;
+    }
+
+    .nwReviews {
+      overflow: hidden;
+    }
+
+    .nwReviewsWrapTitle {
+      justify-content: center;
+    }
+  }
+</style>
+<!-- Link Swiper's CSS -->
+
+  
+<section class="nwReviews section-{{ section.id }}">
+  <div class="page-width">
+    
+    <div class="nwReviewsWrapTitle">
+      {{ section.settings.title }}
+      <div class="nav_wrap">
+          <div class="player-prev">
+            <svg class="instant-icon" xmlns="http://www.w3.org/2000/svg" width="10" height="19" viewBox="0 0 10 19" fill="none" transform="rotate(180)"><path d="M.624 0a.62.62 0 0 0-.442.188.647.647 0 0 0 0 .9l8.311 8.477-8.19 8.35a.647.647 0 0 0 0 .9c.243.247.64.247.883 0l8.632-8.8a.647.647 0 0 0 0-.9L1.065.188A.62.62 0 0 0 .624 0" fill="#232323"/></svg>
+          </div>
+          <div class="player-next">
+            <svg class="instant-icon" xmlns="http://www.w3.org/2000/svg" width="10" height="19" viewBox="0 0 10 19" fill="none"><path d="M.624 0a.62.62 0 0 0-.442.188.647.647 0 0 0 0 .9l8.311 8.477-8.19 8.35a.647.647 0 0 0 0 .9c.243.247.64.247.883 0l8.632-8.8a.647.647 0 0 0 0-.9L1.065.188A.62.62 0 0 0 .624 0" fill="#232323"/></svg>
+          </div>
+      </div>
+    </div>
+    <h4 class="sub_title">{{ section.settings.sub_title }}</h4>
+    <div class="nwReviewsWrap">
+      <div class="landingReviewsWrapSwiper">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+          <div class="swiper-slide landingReviewsWrapSwiperSlider">
+            <div class="landingReviewsWrapSwiperSliderOne" >
+              <div class="landingReviewsWrapSwiperSliderTop">
+                <div class="landingReviewsWrapSwiperSliderTopWrapTop">
+                  <svg width="160" height="24" viewBox="0 0 160 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#a)"><path d="m8.243 7.34-6.38.925-.113.023a1 1 0 0 0-.44 1.684l4.622 4.499-1.09 6.355-.013.11a1 1 0 0 0 1.464.944l5.706-3 5.693 3 .1.046a1 1 0 0 0 1.352-1.1l-1.091-6.355 4.624-4.5.078-.085a1 1 0 0 0-.633-1.62l-6.38-.926-2.852-5.78a1 1 0 0 0-1.794 0z" fill="#14c87c"/></g><g clip-path="url(#b)"><path d="m42.243 7.34-6.38.925-.113.023a1 1 0 0 0-.44 1.684l4.622 4.499-1.09 6.355-.013.11a1 1 0 0 0 1.464.944l5.706-3 5.693 3 .1.046a1 1 0 0 0 1.352-1.1l-1.091-6.355 4.624-4.5.078-.085a1 1 0 0 0-.633-1.62l-6.38-.926-2.852-5.78a1 1 0 0 0-1.794 0z" fill="#14c87c"/></g><g clip-path="url(#c)"><path d="m76.243 7.34-6.38.925-.113.023a1 1 0 0 0-.44 1.684l4.622 4.499-1.09 6.355-.013.11a1 1 0 0 0 1.464.944l5.706-3 5.693 3 .1.046a1 1 0 0 0 1.352-1.1l-1.091-6.355 4.624-4.5.078-.085a1 1 0 0 0-.633-1.62l-6.38-.926-2.852-5.78a1 1 0 0 0-1.794 0z" fill="#14c87c"/></g><g clip-path="url(#d)"><path d="m110.243 7.34-6.38.925-.113.023a1.001 1.001 0 0 0-.44 1.684l4.622 4.499-1.09 6.355-.013.11a.996.996 0 0 0 .954 1.058 1 1 0 0 0 .51-.114l5.706-3 5.693 3 .1.046a1 1 0 0 0 1.352-1.1l-1.091-6.355 4.624-4.5.078-.085a1 1 0 0 0-.633-1.62l-6.38-.926-2.852-5.78a1.01 1.01 0 0 0-.897-.558 1 1 0 0 0-.897.558z" fill="#14c87c"/></g><g clip-path="url(#e)"><path d="m144.243 7.34-6.38.925-.113.023a1.001 1.001 0 0 0-.44 1.684l4.622 4.499-1.09 6.355-.013.11a.996.996 0 0 0 .954 1.058 1 1 0 0 0 .51-.114l5.706-3 5.693 3 .1.046a1 1 0 0 0 1.352-1.1l-1.091-6.355 4.624-4.5.078-.085a1 1 0 0 0-.633-1.62l-6.38-.926-2.852-5.78a1.01 1.01 0 0 0-.897-.558 1 1 0 0 0-.897.558z" fill="#14c87c"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h24v24H0z"/></clipPath><clipPath id="b"><path fill="#fff" d="M34 0h24v24H34z"/></clipPath><clipPath id="c"><path fill="#fff" d="M68 0h24v24H68z"/></clipPath><clipPath id="d"><path fill="#fff" d="M102 0h24v24h-24z"/></clipPath><clipPath id="e"><path fill="#fff" d="M136 0h24v24h-24z"/></clipPath></defs></svg>
+  
+                  <div class="landingReviewsWrapSwiperSliderTopTitle">
+                    {{ block.settings.title }}
+                  </div>
+                  
+                  <div class="landingReviewsWrapSwiperSliderTopText">
+                    {{ block.settings.text }}
+                  </div>
+                </div>
+  
+                <div class="landingReviewsWrapSwiperSliderTopWrap">
+                  <div class="landingReviewsWrapSwiperSliderTopVerif">
+                    <img src="{{ block.settings.avatar | img_url: 'master' }}" />
+    
+                    {{ block.settings.name }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+  <!-- Swiper JS -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.8.4/swiper-bundle.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      console.log('here!!!!');
+      var landingReviewsWrapSwiper = new Swiper(".landingReviewsWrapSwiper", {
+        slidesPerView: "auto",
+        centeredSlides: false,
+        calculateHeight:true,
+        loop: false,
+        spaceBetween: 25,
+        navigation: {
+          prevEl: '.nwReviews .nav_wrap .player-prev',
+          nextEl: '.nwReviews .nav_wrap .player-next'
+        }
+      });
+    });
+  </script>
+
+{% schema %}
+{
+  "name": "Lnading Reviews",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section main settings"
+    },
+    {
+      "type": "color_background",
+      "id": "bgColor",
+      "label": "Section background"
+    },
+    {
+      "type": "range",
+      "id": "pdTop",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Section padding-top",
+      "default": 35
+    },
+    {
+      "type": "range",
+      "id": "pdBottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Section padding-bottom",
+      "default": 35
+    },
+    {
+      "type": "range",
+      "id": "pdTopMob",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Section padding-top (mobile)",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "pdBottomMob",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Section padding-bottom (mobile)",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "Section content settings"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "sub_title",
+      "label": "Sub Title"
+    }
+  ],
+  "blocks": [
+     {
+       "name": "Item",
+       "type": "item",
+       "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+         {
+            "type": "textarea",
+            "id": "text",
+            "label": "Text"
+          },
+         {
+            "type": "text",
+            "id": "name",
+            "label": "Name"
+          },
+         {
+           "type": "image_picker",
+           "id": "avatar",
+           "label": "Avatar"
+         },
+         {
+            "type": "product",
+            "id": "product",
+            "label": "Product"
+          }
+
+       ]
+     }
+  ],
+  "presets": [
+    {
+      "name": "New Reviews"
+    }
+  ]
+}
+{% endschema %}

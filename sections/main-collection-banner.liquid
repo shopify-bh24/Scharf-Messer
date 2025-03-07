@@ -1,0 +1,173 @@
+{% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
+{{ 'component-collection-hero.css' | asset_url | stylesheet_tag }}
+{{ 'custom.css' | asset_url | stylesheet_tag }}
+
+{% assign current_collection_title = collection.title %}
+{% for menu in shop.metaobjects.collection_menus.values %}
+  {% if menu.collection.value.title == current_collection_title %}
+    {% assign currentCollectionData = menu %}
+  {% else %}
+    {%- for m in menu.sub_collections.value -%}
+      {%- if m.collection.value.title == current_collection_title -%}
+        {% assign currentCollectionData = menu %}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+{% endfor %}
+
+{%- style -%}
+  @media screen and (max-width: 749px) {
+    .collection-hero--with-image .collection-hero__inner {
+      padding-bottom: calc({{ settings.media_shadow_vertical_offset | at_least: 0 }}px + 2rem);
+    }
+  }
+
+  {% if currentCollectionData.sub_collections != blank %}
+    .collaction_accordion, .collection_images {
+      display: none !important;
+    }
+  {% endif %}
+{%- endstyle -%}
+
+<div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+  {% if currentCollectionData.sub_collections != blank %}
+    <div class="collection-banner_content full">
+      {%- liquid
+        if section.settings.banner_image != blank
+          assign bannerImage = section.settings.banner_image
+        elsif currentCollectionData.background_image != blank
+          assign bannerImage = currentCollectionData.background_image
+        endif
+      -%}
+
+      <div class="media">
+        <img src="{{ bannerImage | img_url: 'master' }}" alt="">
+      </div>
+      <div class="content">
+        <span>{{ currentCollectionData.title }}</span>
+      </div>
+    </div>
+    <div class="collection_menuss_wraps">
+      <div>
+        <div class="collection_menuss collection_menuss_custom">
+          {% for sub in currentCollectionData.sub_collections.value %}
+            <a href="{{ sub.collection.value.url }}" class="collection-item">
+              <div class="collection-image collection-img-sub">
+                <img src="{{ sub.knife_image | img_url: '100x100' }}" alt="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="93" height="81" viewBox="0 0 93 81" fill="none">
+                  <path d="M69.2925 1.72677L91.5649 40.8284L68.8382 79.6677L23.8389 79.4054L1.56646 40.3038L24.2932 1.46448L69.2925 1.72677Z" stroke="#3F5744"/>
+                </svg>
+              </div>
+              <span class="collection-title">{{ sub.title }}</span>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% else %}
+    {% assign selected_collections = 'bestseller,kuchenmesser,taschenmesser-klappbar,taschenmesser,zubehor-1,messersets'
+      | split: ','
+    %}
+    {% comment %}
+      <section class="collections-list-section">
+          <div>
+            <div class="collections-container">
+              {% for handle in selected_collections %}
+                {% assign collection = collections[handle] %}
+                {% if collection != blank %}
+                  <a href="{{ collection.url }}" class="collection-item">
+                    <div class="collection-image">
+                      {% if collection.image %}
+                        <img class="" src="{{ collection.image | img_url: '300x300' }}" alt="{{ collection.title }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="93" height="81" viewBox="0 0 93 81" fill="none">
+                          <path d="M69.2925 1.72677L91.5649 40.8284L68.8382 79.6677L23.8389 79.4054L1.56646 40.3038L24.2932 1.46448L69.2925 1.72677Z" stroke="#3F5744"/>
+                        </svg>
+                      {% else %}
+                        <div class="placeholder">No Image</div>
+                      {% endif %}
+                    </div>
+                    <div class="collection-title">{{ collection.title }}</div>
+                  </a>
+                {% endif %}
+              {% endfor %}
+              {% for block in section.blocks %}
+                <a href="{{ block.settings.page_url }}" class="collection-item">
+                  <div class="collection-image">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="93" height="81" viewBox="0 0 93 81" fill="none">
+                      <path d="M69.2925 1.72677L91.5649 40.8284L68.8382 79.6677L23.8389 79.4054L1.56646 40.3038L24.2932 1.46448L69.2925 1.72677Z" stroke="#3F5744"/>
+                    </svg>
+                    <img src="{{ block.settings.page_image | img_url: '300x300' }}" alt="{{ collection.title }}">
+                  </div>
+                  <div class="collection-title">{{ block.settings.page_title }}</div>
+                </a>
+              {% endfor %}
+            </div>
+          </div>
+      </section>
+    {% endcomment %}
+    <div class="collection-banner_content page-width">
+      {%- liquid
+        if currentCollectionData.background_image != blank
+          assign bannerImage = currentCollectionData.background_image
+        elsif section.settings.banner_image != blank
+          assign bannerImage = section.settings.banner_image
+        endif
+      -%}
+      <div class="media">
+        <img src="{{ bannerImage | img_url: 'master' }}" alt="">
+      </div>
+      <div class="content">
+        <span>{{ currentCollectionData.title | default: collection.title }}</span>
+      </div>
+    </div>
+  {% endif %}
+</div>
+{% schema %}
+{
+  "name": "t:sections.main-collection-banner.name",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Default Banner Image"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:sections.main-collection-banner.settings.paragraph.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_description",
+      "default": true,
+      "label": "t:sections.main-collection-banner.settings.show_collection_description.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_image",
+      "default": false,
+      "label": "t:sections.main-collection-banner.settings.show_collection_image.label",
+      "info": "t:sections.main-collection-banner.settings.show_collection_image.info"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_collection",
+          "label": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

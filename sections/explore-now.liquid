@@ -1,0 +1,217 @@
+  <style>
+    .grid-container {
+      display: grid;
+      grid-template-columns: 750fr 1170fr;
+      gap: 0;
+      width: 100%;
+    }
+
+    .order-reversal .knife {
+      order: 2;
+    }
+
+    .order-reversal .k_content {
+      order: 1;
+      padding-top: 25px;
+    }
+
+    .grid-item {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .explore-now-{{ section.id }} .grid-item-1 {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      background-color: {{section.settings.background_color}}
+    }
+
+    .explore-now-{{ section.id }} .grid-item-1 .knife {
+      background-image: url('{{ section.settings.knife_image | image_url }}');
+      padding-top: 22.81%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      width: 78.4%
+    }
+
+    .grid-item-1 div {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 35px 20px;
+      width: 100%;
+    }
+    .grid-item-1 div h3 {
+      color: #FFF;
+      font-family: "EuclidFlex-SemiBold", sans-serif;
+      font-size: 60px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 72px; /* 120% */
+      text-transform: uppercase;
+      margin: 0;
+      max-width: 393px;
+    }
+
+    .explore-now-{{ section.id }} .grid-item-2 {
+      padding-top: 37.61%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url('{{ section.settings.right_image | image_url }}');
+    }
+
+    @media(max-width: 1700px) and (min-width: 1401px) {
+      .grid-item-1 div h3 {
+        font-size: 42px;
+        line-height: 52px;
+        max-width: 260px;
+      }
+
+      .grid-item-1 div svg {
+        width: 180px;
+      }
+    }
+
+    @media(max-width: 1400px) and (min-width: 768px) {
+      .grid-item-1 div h3 {
+        font-size: 22px;
+        line-height: 32px;
+        max-width: 145px;
+      }
+
+      .grid-item-1 div svg {
+        width: 130px;
+      }
+
+      .grid-item-1 div {
+        padding: 0 20px 20px;
+      }
+    }
+
+    @media(max-width: 767px) {
+      .grid-container {
+        grid-template-columns: 1fr;
+      }
+
+      .order-reversal .k_content {
+        padding-bottom: 0;
+      }
+
+      .grid-item-1 {
+        order: 2;
+      }
+
+      .grid-item-1 .knife {
+        padding-top: 16.81%;
+      }
+
+      .grid-item-1 div {
+        padding: 0 20px 25px;
+      }
+
+      .grid-item-1 div h3 {
+        font-size: 20px;
+        line-height: 30px;
+        max-width: 140px;
+      }
+
+      .grid-item-1 div svg {
+        width: 100px;
+      }
+    }
+  </style>
+<div
+  class="explore-now-{{ section.id }} color-{{ section.settings.color_scheme }} isolate gradient {% if section.settings.top_gap %} top-gap{% endif %} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+>
+  <div class="grid-container">
+    <div class="grid-item grid-item-1 {% if section.settings.title_position == true %}order-reversal{% endif %}">
+      <div class="knife">
+        
+      </div>
+      <div class="k_content">
+        <h3>{{ section.settings.title }}</h3>
+        <a href="{{ section.settings.link.url }}">
+          <svg width="215" height="69" viewBox="0 0 215 69" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m192.119 23-4.415 4.435 15.357 15.43h-34.04v6.275h34.035l-15.352 15.425L192.119 69l22.862-22.967-.03-.033.03-.035zM0 43h169v6H0zm2.47-17V7.54h10.66v2.288H4.836v5.59h6.734v2.288H4.836v6.006h8.294V26zm12.108 0 6.656-9.412-6.318-9.048h2.73l5.07 7.254 5.07-7.254h2.73l-6.266 9.048L30.88 26h-2.678l-5.46-7.67L17.334 26zm18.92 0V7.54h5.225q2.913 0 4.654 1.534 1.742 1.508 1.742 4.108 0 2.574-1.742 4.108t-4.654 1.534h-2.86V26zm2.365-9.36h2.782q1.977 0 3.016-.884 1.04-.91 1.04-2.574 0-1.665-1.04-2.548-1.04-.91-3.016-.91h-2.782zM48.427 26V7.54h2.366v16.146h8.086V26zm27.136-2.496q-2.73 2.704-6.708 2.704t-6.708-2.704q-2.73-2.73-2.73-6.734t2.73-6.708q2.73-2.73 6.708-2.73t6.708 2.73q2.73 2.705 2.73 6.708t-2.73 6.734m-11.726-1.612q2.001 2.055 5.018 2.054 3.015 0 5.018-2.054 2.001-2.08 2.002-5.122t-2.002-5.096q-2.003-2.08-5.018-2.08-3.017 0-5.018 2.08-2.002 2.055-2.002 5.096t2.002 5.122M81.968 26V7.54h5.486q2.704 0 4.316 1.43 1.612 1.404 1.612 3.77a5.15 5.15 0 0 1-1.066 3.198q-1.065 1.404-3.328 1.846L95.384 26h-2.86l-6.162-8.06h-2.028V26zm2.366-10.166h2.964q1.794 0 2.704-.78.936-.806.936-2.262 0-1.482-.936-2.262-.91-.806-2.704-.806h-2.964zM98.066 26V7.54h10.66v2.288h-8.294v5.59h6.734v2.288h-6.734v6.006h8.294V26zm36.444.208L121.354 12.87V26h-2.366V7.332l13.156 13.338V7.54h2.366zm19.814-2.704q-2.73 2.704-6.708 2.704t-6.708-2.704q-2.73-2.73-2.73-6.734t2.73-6.708q2.73-2.73 6.708-2.73t6.708 2.73q2.73 2.705 2.73 6.708t-2.73 6.734m-11.726-1.612q2.003 2.055 5.018 2.054 3.017 0 5.018-2.054 2.002-2.08 2.002-5.122t-2.002-5.096q-2.001-2.08-5.018-2.08-3.015 0-5.018 2.08-2.002 2.055-2.002 5.096t2.002 5.122m21.934 4.316L158.188 7.54h2.444l4.082 12.324 4.81-12.532 4.836 12.532 4.082-12.324h2.444l-6.344 18.668-5.018-13z" fill="#fff"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="grid-item grid-item-2">
+      
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Explore Now",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "top_gap",
+        "default": false,
+        "label": "Top Gap"
+      },
+      {
+        "type": "header",
+        "content": "Left side content"
+      },
+      {
+        "type": "checkbox",
+        "id": "title_position",
+        "label": "Align title to top",
+        "default": false
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background color",
+        "default": "#325437"
+      },
+      {
+        "type": "image_picker",
+        "id": "knife_image",
+        "label": "Knife Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+      "type": "url",
+        "id": "link",
+        "label": "Explore link"
+      },
+      {
+        "type": "header",
+        "content": "Right side"
+      },
+      {
+        "type": "image_picker",
+        "id": "right_image",
+        "label": "Background Image"
+      },
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "t:sections.all.colors.label",
+        "info": "t:sections.all.colors.has_cards_info",
+        "default": "scheme-1"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Explore Now"
+      }
+    ]
+  }
+{% endschema %}

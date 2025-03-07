@@ -1,0 +1,456 @@
+  <style>
+    .eco-friendly .container {
+      display: grid;
+      grid-template-columns: 1211fr 668fr;
+      gap: 40px;
+      width: 100%;
+    }
+    
+    .eco-friendly .container .left_content {
+      /* background-image: url('{{ section.settings.left_image | image_url }}'); */
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .eco-friendly .container .left_content .media {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .eco-friendly .container .left_content .media img {
+     filter: blur(3px);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .eco-friendly .container .left_content .top {
+      display: flex;
+      align-items: center;
+      padding-top: 15px;
+    }
+
+    .eco-friendly .container .left_content .top > div:first-child {
+      width: 45%;
+    }
+    
+    .eco-friendly .container .left_content .top > div:last-child {
+      width: 55%;
+    }
+
+    .eco-friendly .container .left_content .top > div svg {
+      margin: auto;
+      display: block;
+      width: 90%;
+    }
+
+    .eco-friendly .container .left_content .top .t_knife {
+      background-image: url('{{ section.settings.top_knife | image_url }}');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      padding-top: 31.84%;
+    }
+
+    .eco-friendly .container .left_content .bottom {
+      width: 47%;
+      margin-left: auto;
+      padding-bottom: 15px;
+    }
+
+    .eco-friendly .container .left_content .bottom .b_knife {
+      background-image: url('{{ section.settings.bottom_knife | image_url }}');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      padding-top: 35.73%;
+    }
+
+    .eco-friendly .container .right_content {
+      background-image: url('{{ section.settings.right_image | image_url }}');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: relative;
+      display: grid;
+      grid-template-columns: 463fr 179fr;
+      gap: 0px;
+      padding: 40px;
+      align-items: flex-end;
+    }
+
+    .eco-friendly .container .left_content .mark {
+      color: #FFF;
+      font-family: "EuclidFlex-Regular", sans-serif;
+      font-size: 56px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 38px; /* 67.857% */
+      padding: 16px;
+      border-radius: 100%;
+      background-color: #00990F;
+      width: 90px;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: -50%;
+      position: relative;
+    }
+
+    .eco-friendly .container .left_content .left_desc {
+      color: #FFF;
+      font-family: "EuclidFlex-Regular", sans-serif;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 30px; /* 125% */
+      max-width: 750px;
+    }
+
+    
+    .eco-friendly .container .middle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      padding: 80px 25px 40px;
+    }
+
+    .eco-friendly .container .middle.column {
+      flex-direction: column;
+    }
+
+    .eco-friendly .container .middle a {
+      background: #B3C68D;
+      border-radius: 5px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      letter-spacing: 0.01em;
+      color: #0F3933;
+      text-decoration: none;
+      padding: 22px 30px;
+      margin-left: auto;
+      margin-right: 60px;
+      margin-bottom: 40px;
+    }
+
+    .eco-friendly .container .right_content > div:first-child {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .eco-friendly .container .right_content .right_desc {
+      color: #FFF;
+      font-family: "EuclidFlex-Regular", sans-serif;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 30px; /* 150% */
+      max-width: 420px;
+    }
+
+    .eco-friendly .container .right_content .join {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .eco-friendly .container .right_content .join span {
+      color: #FFF;
+      font-family: "EuclidFlex-Light", sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 22px; /* 137.5% */
+      max-width: 465px;
+    }
+
+    .eco-friendly .container .right_content .join a {
+      width: 100%;
+      text-align: center;
+    }
+    
+    .eco-friendly .container .right_content .join_knife {
+      background-image: url("{{ section.settings.join_knife_image | image_url }}");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      padding-top: 305.03%;
+    }
+
+    @media (min-width: 980px) and (max-width: 1400px) {
+      .eco-friendly .container {
+        grid-template-columns: 1fr 1.5fr;
+        gap: 20px;
+      }
+    }
+
+    @media(max-width: 1250px) {
+      .eco-friendly .container .left_content .left_title {
+        font-size: 50px;
+        line-height: 52px;
+      }
+    }
+
+    @media(max-width: 1050px) {
+      .eco-friendly .container .left_content .left_title {
+        font-size: 35px;
+        line-height: 40px;
+      }
+    }
+
+    @media (max-width: 989px) {
+      .eco-friendly .container {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .eco-friendly .container .left_content .left_title {
+        font-size: 18px;
+        line-height: 20px;
+        padding: 15px 9px;
+      }
+
+      .eco-friendly .container .middle a {
+          font-size: 20px;
+          line-height: 20px;
+          padding: 15px 25px;
+          margin-right: 0px;
+      }
+      
+      .eco-friendly .container .left_content .left_desc {
+        font-size: 18px;
+        line-height: 24px;
+      }
+
+      .eco-friendly .container .middle {
+        gap: 5px;
+        padding: 30px 25px 0px;
+      }
+
+      .eco-friendly .container .left_content .mark {
+        font-size: 19px;
+        line-height: 19px;
+        padding: 1px;
+        min-width: 40px;
+        min-height: 40px;
+        width: 40px;
+        height: 40px;
+      }
+
+      .eco-friendly .container .right_content {
+        padding: 25px;
+      }
+
+      .eco-friendly .container .right_content .right_desc {
+        font-size: 14px;
+        line-height: 18px;
+      }
+
+      .eco-friendly .container .right_content .join span {
+        font-size: 12px;
+        line-height: 15px;
+      }
+
+      .eco-friendly .container .right_content .join a svg {
+        width: 90px;
+      }
+
+      .eco-friendly .container .right_content .join a {
+        gap: 5px;
+      }
+
+      .eco-friendly .container .right_content > div:first-child {
+        gap: 20px;
+      }
+
+      .eco-friendly .container .right_content {
+        padding-right: 0 !important;
+      }
+    }
+  </style>
+<div
+  class="{{ section.settings.customClass }} eco-friendly color-{{ section.settings.color_scheme }} isolate gradient {% if section.settings.top_gap %} top-gap{% endif %} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+>
+  <div class="container">
+    <div class="left_content">
+      <div class="media">
+        <img src="{{ section.settings.left_image | img_url: 'master' }}" alt="" />
+      </div>
+      <div class="top">
+        <div>
+          <div class="t_knife">
+            
+          </div>
+        </div>
+        <div>
+          <h4 class="left_title">{{ section.settings.left_title }}</h4>
+          <!-- <svg width="510" height="47" viewBox="0 0 510 47" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M.664 46q.895-1.151 1.6-3.008.705-1.92.704-5.632V9.84q0-3.712-.704-5.632-.705-1.92-1.6-3.008h32.064v11.776a46 46 0 0 0-1.152-2.112q-.704-1.408-1.984-2.752-1.215-1.344-3.008-2.304-1.792-1.024-4.352-1.024h-2.304q-1.6 0-2.496.512-.895.448-1.344 1.216a4 4 0 0 0-.576 1.6 24 24 0 0 0-.064 1.728v11.072h3.456q2.112-.192 3.072-1.28a12.5 12.5 0 0 0 1.728-2.304V28.08a12 12 0 0 0-.832-1.216 4.5 4.5 0 0 0-.896-1.088 3.9 3.9 0 0 0-1.28-.832q-.705-.384-1.792-.448h-3.456V37.36q0 .768.064 1.664.127.896.576 1.664t1.344 1.28q.896.448 2.496.448h2.56q2.496 0 4.288-.96 1.792-1.024 2.944-2.368 1.215-1.408 1.92-2.752l1.088-2.176V46zm66.417.64q-6.017 0-10.433-1.728-4.415-1.792-7.296-4.864-2.88-3.136-4.287-7.36-1.409-4.224-1.408-9.152 0-4.8 1.344-8.96 1.343-4.16 4.096-7.296 2.752-3.135 6.975-4.928Q60.363.56 66.122.56q2.047 0 4.096.32t3.968 1.088q1.92.705 3.52 1.92a9.8 9.8 0 0 1 2.752 2.88q1.28 1.984 1.088 4.288-.129 2.24-2.368 3.712-1.792 1.215-3.84 1.216t-3.84-1.152q-1.793-1.215-2.945-3.328a16 16 0 0 1-1.024-2.368 30 30 0 0 0-.64-2.048q-.32-.96-.767-1.472-.385-.576-1.088-.576-1.345 0-2.625 1.472-1.215 1.472-2.175 3.968t-1.536 5.888-.577 7.232.705 7.232 2.047 5.888q1.409 2.496 3.329 3.968 1.984 1.472 4.48 1.472 2.303 0 4.288-.96 2.047-.96 3.52-2.112a21.7 21.7 0 0 0 3.2-3.072l2.304 3.456q-1.409 1.984-3.52 3.584-1.857 1.344-4.672 2.496-2.752 1.088-6.72 1.088m46.632 0q-5.505 0-9.536-1.728-4.032-1.792-6.657-4.864-2.624-3.136-3.903-7.36-1.28-4.224-1.28-9.152 0-4.8 1.28-8.96 1.343-4.16 4.031-7.296 2.689-3.135 6.657-4.928Q108.337.56 113.713.56t9.344 1.792q4.032 1.792 6.72 4.928t3.968 7.296q1.344 4.16 1.344 8.96 0 4.928-1.28 9.152t-3.904 7.36q-2.624 3.072-6.656 4.864-4.032 1.728-9.536 1.728m0-4.48q1.344 0 2.56-1.472 1.28-1.472 2.24-3.968t1.472-5.888q.576-3.392.576-7.232t-.576-7.232q-.513-3.392-1.472-5.888-.96-2.496-2.24-3.968-1.216-1.472-2.56-1.472t-2.624 1.472q-1.216 1.472-2.176 3.968t-1.536 5.888-.576 7.232.576 7.232 1.536 5.888 2.176 3.968q1.28 1.472 2.624 1.472m68.83-4.8q0 3.712.704 5.632.704 1.856 1.6 3.008h-17.088q.896-1.151 1.6-3.008.704-1.92.704-5.632V9.84q0-3.712-.704-5.632t-1.6-3.008h32.064v11.776a46 46 0 0 0-1.152-2.112q-.704-1.408-1.984-2.752-1.216-1.344-3.072-2.304-1.792-1.024-4.288-1.024h-2.304q-1.6 0-2.496.512-.895.448-1.344 1.216a4 4 0 0 0-.576 1.6 24 24 0 0 0-.064 1.728v11.072h3.456q2.112-.192 3.072-1.28a18 18 0 0 0 1.728-2.304V28.08a12 12 0 0 0-.832-1.216 4.5 4.5 0 0 0-.896-1.088 3.9 3.9 0 0 0-1.28-.832q-.704-.384-1.792-.448h-3.456zm66.672-23.872q0 3.136-.832 5.376-.831 2.176-2.496 3.648-1.6 1.471-3.904 2.368-2.304.832-5.312 1.216a62 62 0 0 1 4.48 6.4 116 116 0 0 1 3.584 6.08 648 648 0 0 0 2.816 4.8q1.281 1.984 2.304 2.624h-17.28q0-1.472-.384-3.648-.32-2.176-1.984-5.696l-4.672-9.664V37.36q0 3.712.704 5.632.705 1.856 1.6 3.008h-17.088q.897-1.151 1.6-3.008.704-1.92.704-5.632V9.84q0-3.712-.704-5.568-.703-1.92-1.6-3.072h19.776q4.032 0 7.424.512 3.456.512 5.952 1.92a9.8 9.8 0 0 1 3.904 3.776q1.408 2.368 1.408 6.08m-23.68 6.912q0 1.088.576 1.536.64.384 1.92.384 1.152 0 2.496-.128a6.5 6.5 0 0 0 2.56-.96q1.216-.833 1.984-2.624.832-1.792.832-5.056 0-2.815-.832-4.48-.768-1.665-1.92-2.56-1.151-.896-2.432-1.152-1.216-.255-2.176-.256-3.008 0-3.008 1.984zM260.806 46q.897-1.151 1.6-3.008.705-1.92.704-5.632V9.84q0-3.712-.704-5.632-.703-1.92-1.6-3.008h17.088q-.895 1.088-1.6 3.008-.704 1.92-.704 5.632v27.52q0 3.712.704 5.632.705 1.856 1.6 3.008zm28.118 0q.896-1.151 1.6-3.008.704-1.92.704-5.632V9.84q0-3.712-.704-5.632t-1.6-3.008h32.064v11.776a46 46 0 0 0-1.152-2.112q-.704-1.408-1.984-2.752-1.216-1.344-3.008-2.304-1.792-1.024-4.352-1.024h-2.304q-1.6 0-2.496.512-.895.448-1.344 1.216a4 4 0 0 0-.576 1.6 24 24 0 0 0-.064 1.728v11.072h3.456q2.112-.192 3.072-1.28a12.5 12.5 0 0 0 1.728-2.304V28.08a12 12 0 0 0-.832-1.216 4.5 4.5 0 0 0-.896-1.088 3.9 3.9 0 0 0-1.28-.832q-.704-.384-1.792-.448h-3.456V37.36q0 .768.064 1.664.127.896.576 1.664t1.344 1.28q.895.448 2.496.448h2.56q2.496 0 4.288-.96 1.792-1.024 2.944-2.368 1.216-1.408 1.92-2.752l1.088-2.176V46zm42.993 0q.895-1.151 1.6-3.008.704-1.92.704-5.632V9.84q0-3.712-.704-5.632-.705-1.92-1.6-3.008h17.088q-.897 1.087-.64 3.264.256 2.176 2.176 5.376l15.488 25.6V9.84q0-3.712-.704-5.632-.705-1.92-1.6-3.008h8.96q-.897 1.088-1.6 3.008t-.704 5.632v27.52q0 2.303.384 4.544.447 2.24 1.92 4.096h-17.088q.895-1.152.64-3.264-.256-2.176-2.176-5.376l-15.488-25.664V37.36q0 3.712.704 5.632.703 1.856 1.6 3.008zm51.804 0q.897-1.151 1.6-3.008.704-1.92.704-5.632V9.84q0-3.712-.704-5.568-.703-1.92-1.6-3.072h19.264q4.224 0 8 1.088 3.84 1.024 6.72 3.648 2.88 2.56 4.544 6.912 1.665 4.351 1.664 11.008 0 6.912-1.664 11.264-1.664 4.288-4.544 6.72t-6.72 3.328q-3.776.832-8 .832zm14.784-6.784q0 1.408.896 2.112.897.64 1.92.64 1.473 0 2.88-1.024 1.473-1.025 2.56-3.2 1.152-2.24 1.856-5.632.705-3.456.704-8.192 0-4.736-.704-8.256t-1.856-5.824q-1.087-2.304-2.56-3.456-1.472-1.152-3.008-1.152-1.087 0-1.92.576-.768.576-.768 1.728zM437.143 9.84q0-3.712-.704-5.632t-1.6-3.008h17.088q-.896 1.088-1.6 3.008t-.704 5.632v27.52q0 .768.064 1.664.127.896.576 1.664t1.344 1.28q.895.448 2.496.448h2.56q2.496 0 4.288-.96 1.792-1.024 2.944-2.368 1.216-1.408 1.92-2.752l1.088-2.176V46h-32.064q.896-1.151 1.6-3.008.704-1.92.704-5.632zM484.35 1.2q-.897.705-1.216 2.048-.257 1.28.832 3.584l7.936 16.384 8.384-16.384q1.152-2.24.832-3.584T499.902 1.2h9.152q-.896.705-2.048 2.048-1.089 1.28-2.176 3.584l-10.176 21.184v9.344q0 3.712.704 5.632.703 1.856 1.6 3.008H479.87q.895-1.151 1.6-3.008.704-1.92.704-5.632v-8.384L471.486 6.832q-1.089-2.303-2.24-3.584-1.089-1.344-1.984-2.048z" fill="#fff"/></svg> -->
+        </div>
+      </div>
+      <div class="middle {% if section.settings.left_btn_link %}column{% endif %}">
+        <div class="mark">{{ section.settings.mark }}</div>
+        <div class="left_desc">{{ section.settings.left_description }}</div>
+        {% if section.settings.left_btn_link %}
+          <a href="{{ section.settings.left_btn_link }}">
+            {{ section.settings.left_btn_label }}
+          </a>
+        {% endif %}
+      </div>
+      <div class="bottom">
+        <div class="b_knife">
+          
+        </div>
+      </div>
+    </div>
+    <div class="right_content">
+      <div>
+        <div class="right_desc">{{ section.settings.right_description }}</div>
+        <div class="join">
+          <span>{{ section.settings.join_description }}</span>
+          <a href="{{ section.settings.link }}">
+            <svg width="146" height="32" viewBox="0 0 146 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m132.072 2-2.69 2.7 9.356 9.392H118v3.82h20.735l-9.353 9.388 2.69 2.7L146 16.02l-.018-.02.018-.022zM9.776 24.856q-1.534 1.352-3.848 1.352t-3.848-1.43-1.534-3.926h2.366q0 1.508.832 2.314.858.78 2.158.78 1.378 0 2.21-.78t.832-2.314V7.54h2.366v13.468q0 2.496-1.534 3.848m21.175-1.352q-2.73 2.704-6.708 2.704t-6.708-2.704q-2.73-2.73-2.73-6.734t2.73-6.708q2.73-2.73 6.708-2.73t6.708 2.73q2.73 2.705 2.73 6.708t-2.73 6.734m-11.726-1.612q2.003 2.055 5.018 2.054 3.017 0 5.018-2.054 2.002-2.08 2.002-5.122t-2.002-5.096q-2.001-2.08-5.018-2.08-3.015 0-5.018 2.08-2.001 2.055-2.002 5.096t2.002 5.122M37.357 26V7.54h2.366V26zm22.834.208L47.035 12.87V26H44.67V7.332L57.825 20.67V7.54h2.366zm23.871-1.95q-2.028 1.95-5.304 1.95-3.275 0-5.33-1.95-2.028-1.95-2.028-5.278V7.54h2.366v11.544q0 2.34 1.352 3.614 1.352 1.248 3.64 1.248t3.64-1.248q1.352-1.275 1.352-3.614V7.54h2.366v11.44q0 3.328-2.054 5.278m11.135 1.95q-1.923 0-3.536-.806-1.585-.806-2.47-2.054l1.794-1.56q1.716 2.158 4.186 2.158 1.638 0 2.548-.676.936-.702.936-1.924t-.728-1.976q-.728-.78-2.288-1.456l-1.69-.728q-4.03-1.742-4.03-5.226 0-2.028 1.612-3.328 1.638-1.3 3.77-1.3 3.25 0 5.174 2.366l-1.664 1.664q-1.482-1.768-3.588-1.768-1.221 0-2.08.65-.858.65-.858 1.768 0 1.014.624 1.742.651.728 2.106 1.378l1.69.728q2.08.936 3.198 2.184 1.144 1.223 1.144 3.042 0 2.288-1.586 3.718-1.585 1.404-4.264 1.404" fill="#fff"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="join_knife">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Eco Friendly",
+    "settings": [
+      {
+        "type": "text",
+        "id": "customClass",
+        "label": "Custom class"
+      },
+      {
+        "type": "checkbox",
+        "id": "top_gap",
+        "default": false,
+        "label": "Top Gap"
+      },
+      {
+        "type": "header",
+        "content": "Left side content"
+      },
+      {
+        "type": "text",
+        "id": "left_title",
+        "label": "Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "left_image",
+        "label": "Background Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "top_knife",
+        "label": "Knife on top"
+      },
+      {
+        "type": "image_picker",
+        "id": "bottom_knife",
+        "label": "Knife on bottom"
+      },
+      {
+        "type": "richtext",
+        "id": "left_description",
+        "label": "Description"
+      },
+      {
+        "type": "text",
+        "id": "mark",
+        "label": "Mark"
+      },
+      {
+        "type": "text",
+        "id": "left_btn_label",
+        "label": "Button label"
+      },
+      {
+        "type": "url",
+        "id": "left_btn_link",
+        "label": "Button link"
+      },
+      {
+        "type": "header",
+        "content": "Right side"
+      },
+      {
+        "type": "image_picker",
+        "id": "right_image",
+        "label": "Background Image"
+      },
+      {
+        "type": "richtext",
+        "id": "right_description",
+        "label": "Description"
+      },
+      {
+      "type": "url",
+        "id": "link",
+        "label": "Join us"
+      },
+      {
+        "type": "text",
+        "id": "join_description",
+        "label": "Join Description"
+      },
+      {
+        "type": "image_picker",
+        "id": "join_knife_image",
+        "label": "Knife Image"
+      },
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "t:sections.all.colors.label",
+        "info": "t:sections.all.colors.has_cards_info",
+        "default": "scheme-1"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Eco Friendly"
+      }
+    ]
+  }
+{% endschema %}

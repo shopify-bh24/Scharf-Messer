@@ -1,0 +1,173 @@
+{{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .contact_us {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
+  }
+  .contact_us .head_enough {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+  }
+  
+  .contact_us .head_enough span {
+    max-width: 99px;
+    color: #121212;
+    font-family: "EuclidFlex-Regular", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px; /* 150% */
+    text-transform: uppercase;
+    margin-bottom: -10px;
+  }
+
+  .contact_us .contact_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+   .contact_us h4 {
+     color: #121212;
+    font-family: "EuclidFlex-Medium", sans-serif;
+    font-size: 85px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 92px; /* 108.235% */
+    text-transform: capitalize;
+   }
+
+  .contact_us .contact_link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    background-color: #EEFF04;
+    width: 134px;
+    height: 134px;
+    border-radius: 100%;
+    margin-left: auto;
+  }
+
+  @media (max-width: 980px) {
+    .contact_us {
+        grid-template-columns: 1fr;
+    }
+
+    .contact_us h4 {
+      margin: 25px 0;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .contact_us h4 {
+      font-size: 40px;
+      line-height: 40px;
+    }
+
+    .contact_us .contact_link {
+      width: 64px;
+      height: 64px;
+    }
+
+    .contact_us .contact_link svg {
+      width: 20px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient {% if section.settings.top_gap %} top-gap{% endif %}">
+  <div class="contact_us page-width section-{{ section.id }}-padding {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    <div class="head_enough">
+      <span>{{ section.settings.heading }}</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7.036 0 5.691 1.35l4.678 4.696H0v1.91h10.368L5.69 12.65 7.036 14 14 7.01 13.99 7l.01-.01z" fill="#121212"/></svg>
+    </div>
+    <div class="contact_wrap">
+      <h4>Contact us</h4>
+      <a class="contact_link" href="{{ section.settings.link.url }}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="m14.072 0-2.69 2.7 9.356 9.392H0v3.82h20.735L11.382 25.3l2.69 2.7L28 14.02l-.018-.02.018-.022z" fill="#121212"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Contact us",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "top_gap",
+      "default": false,
+      "label": "Top Gap"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "HEARD ENOUGH",
+      "label": "Header"
+    },
+    {
+    "type": "url",
+      "id": "link",
+      "label": "Explore link"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.has_cards_info",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact us"
+    }
+  ]
+}
+{% endschema %}
