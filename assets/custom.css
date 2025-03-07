@@ -156,6 +156,7 @@
     height: 100%;
     object-fit: cover;
     z-index: 60;
+    margin: auto;
 }
 
 .collection-title {
