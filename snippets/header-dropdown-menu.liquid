@@ -119,8 +119,9 @@
                   <li>
                     <a href="{{ sub.collection.value.url }}" class="dropdown_menu_wraps">
                       <div class="dropdown_menu_contents_image">
-                        <img src="{{ sub.knife_image | img_url: '300x300' }}" alt="">
-                      </div>
+                        <img src="{{ sub.knife_image | img_url: '300x300' }}" alt="" class="{{ sub.title | downcase }}"
+                        >
+                      </div> 
                       <div class="dropdown_menu_wraps-title">{{ sub.title }}</div>
                     </a>
                   </li>
