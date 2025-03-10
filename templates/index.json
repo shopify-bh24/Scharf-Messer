@@ -58,6 +58,35 @@
         "show_text_below": false
       }
     },
+    "collection_section_YYnX3B": {
+      "type": "collection-section",
+      "blocks": {
+        "collection_menu_list_BpWzmw": {
+          "type": "collection_menu_list",
+          "settings": {
+            "page_title": "faq",
+            "page_image": "shopify://shop_images/faq.png",
+            "page_url": "shopify://pages/f-q"
+          }
+        },
+        "collection_menu_list_8zWJNE": {
+          "type": "collection_menu_list",
+          "settings": {
+            "page_title": "UNSERE STORY",
+            "page_image": "shopify://shop_images/star.png",
+            "page_url": "shopify://pages/unsere-story"
+          }
+        }
+      },
+      "block_order": [
+        "collection_menu_list_BpWzmw",
+        "collection_menu_list_8zWJNE"
+      ],
+      "custom_css": [
+        ".bestseller {height: 70%;}"
+      ],
+      "settings": {}
+    },
     "multicolumn_PpYzbn": {
       "type": "multicolumn",
       "blocks": {
@@ -128,35 +157,6 @@
         "margin_top": 0,
         "margin_bottom": 38
       }
-    },
-    "collection_section_YYnX3B": {
-      "type": "collection-section",
-      "blocks": {
-        "collection_menu_list_BpWzmw": {
-          "type": "collection_menu_list",
-          "settings": {
-            "page_title": "faq",
-            "page_image": "shopify://shop_images/faq.png",
-            "page_url": "shopify://pages/f-q"
-          }
-        },
-        "collection_menu_list_8zWJNE": {
-          "type": "collection_menu_list",
-          "settings": {
-            "page_title": "UNSERE STORY",
-            "page_image": "shopify://shop_images/star.png",
-            "page_url": "shopify://pages/unsere-story"
-          }
-        }
-      },
-      "block_order": [
-        "collection_menu_list_BpWzmw",
-        "collection_menu_list_8zWJNE"
-      ],
-      "custom_css": [
-        ".bestseller {height: 70%;}"
-      ],
-      "settings": {}
     },
     "home_related_products_DNUyRa": {
       "type": "home-related-products",
@@ -769,8 +769,8 @@
   },
   "order": [
     "image_banner",
-    "multicolumn_PpYzbn",
     "collection_section_YYnX3B",
+    "multicolumn_PpYzbn",
     "home_related_products_DNUyRa",
     "house_knives_84aRy4",
     "1728547178d01f1913",
