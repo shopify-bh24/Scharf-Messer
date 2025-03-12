@@ -748,7 +748,7 @@ if(totalSum >  numeric_org){
     }
 
     function onChangeCart(cart) {
-      const freeShippingThreshold = 100; // The amount for free shipping
+      const freeShippingThreshold = {{ settings.free_shipping_threshold }}; // The amount for free shipping
       const freeShippingBarText = document.querySelector('.free-shipping-text');
       const progressBarFill = document.querySelector('.progress-bar-fill');
       const progressDone = document.querySelector('.progress-done');
