@@ -1413,6 +1413,19 @@
       }
     ]
   },
+
+  {
+     "name": "t:settings_schema.cart.shipping_threshold",
+     "settings": [
+      {
+        "type": "number",
+        "id": "free_shipping_threshold",
+        "label": "Free Shipping Threshold",
+        "default": 70
+      }
+        ]
+},
+  
   {
     "name": "t:settings_schema.cart.name",
     "settings": [
